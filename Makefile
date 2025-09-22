@@ -2,6 +2,14 @@ BUILD_DIR = ./build
 
 PRJ = playground
 
+ifeq ($(wildcard rocket-chip/src/main),)
+  	$(shell git clone --depth=1 --recursive git@github.com:chipsalliance/rocket-chip.git rocket-chip)
+	
+	ifeq ($(wildcard rocket-chip/dependencies/diplomacy),)
+  		$(shell cd rocket-chip && git submodule update --init --recursive)
+	endif	
+endif
+
 test:
 	mill -i $(PRJ).test
 
