@@ -15,9 +15,16 @@ build/
 
 # mill
 !*.mill
+!*.sc
 !.mill-version
 out/
 .bsp/
 .idea/
 .idea_modules/
+.vscode/
+.bloop/
+.metals/
 test_run_dir/
+
+# rocket-chip
+rocket-chip/
